@@ -400,7 +400,7 @@ export default function Home() {
   return (
     <>
     {/* Animated Splash Screen — shows on first load */}
-    <SplashScreen onComplete={() => setSplashDone(true)} />
+    {!splashDone && <SplashScreen onComplete={() => setSplashDone(true)} />}
     <div className={`relative min-h-screen w-full flex flex-col font-sans overflow-x-hidden p-4 md:p-8 pb-24 md:pb-8 bg-gradient-to-br ${gradientClasses}`}>
       
       {/* Particle Overlays for Atmosphere visuals */}
