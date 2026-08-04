@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-archivo), var(--font-space-grotesk), sans-serif;
+  
+  --color-neo-yellow: #facc15;
+  --color-neo-mint: #4ade80;
+  --color-neo-pink: #f472b6;
+  --color-neo-blue: #60a5fa;
+  --color-neo-purple: #c084fc;
+  --color-neo-orange: #fb923c;
+  --color-neo-cyan: #22d3ee;
+  
+  --shadow-brutal: 4px 4px 0px 0px #000000;
+  --shadow-brutal-lg: 8px 8px 0px 0px #000000;
+  --shadow-brutal-sm: 2px 2px 0px 0px #000000;
+  
+  --shadow-brutal-dark: 4px 4px 0px 0px #ffffff;
+  --shadow-brutal-lg-dark: 8px 8px 0px 0px #ffffff;
+  --shadow-brutal-sm-dark: 2px 2px 0px 0px #ffffff;
+}
+
+/* Custom scrollbar matching Neubrutalism style */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-left: 2px solid #000000;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #18181b;
+  border-left: 2px solid #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #facc15;
+  border: 2px solid #000000;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #c084fc;
+  border: 2px solid #ffffff;
+}
+
+/* Base custom styles for neubrutalist elements */
+.neo-card {
+  @apply bg-white dark:bg-zinc-900 border-3 md:border-4 border-black dark:border-white shadow-brutal dark:shadow-brutal-dark transition-all duration-150;
+}
+
+.neo-card-lg {
+  @apply bg-white dark:bg-zinc-900 border-3 md:border-4 border-black dark:border-white shadow-brutal-lg dark:shadow-brutal-lg-dark transition-all duration-150;
+}
+
+.neo-btn {
+  @apply bg-neo-yellow text-black border-2 border-black font-bold px-4 py-2 flex items-center justify-center gap-2 shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer;
+}
+
+.neo-btn-dark {
+  @apply bg-black dark:bg-white text-white dark:text-black border-2 border-black dark:border-white font-bold px-4 py-2 flex items-center justify-center gap-2 shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer;
+}
+
+.neo-input {
+  @apply bg-white dark:bg-zinc-800 text-black dark:text-white border-2 border-black dark:border-white px-4 py-2 font-medium shadow-brutal-sm focus:outline-none focus:ring-2 focus:ring-neo-yellow dark:focus:ring-neo-purple transition-all;
+}
+
+/* Weather Animations Background Overlay */
+.weather-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Rain animation */
+.rain-particle {
+  position: absolute;
+  background: linear-gradient(transparent, #60a5fa);
+  width: 2px;
+  height: 20px;
+  opacity: 0.7;
+  animation: fall 1s linear infinite;
+}
+
+/* Snow animation */
+.snow-particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: float-snow 3s linear infinite;
+}
+
+/* Cloud drift */
+.cloud-particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  filter: blur(10px);
+  animation: drift 10s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes float-snow {
+  0% {
+    transform: translateY(-10px) translateX(0);
+  }
+  50% {
+    transform: translateY(50vh) translateX(20px);
+  }
+  100% {
+    transform: translateY(100vh) translateX(-20px);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+/* Splash & Loading bar */
+@keyframes progress-fill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Glow pulse for active widgets */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(250, 204, 21, 0); }
+}
+
+/* Tick animation for clock second hand */
+@keyframes tick {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(6deg); }
+}
+
+/* Moon phase shimmer */
+@keyframes moon-shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Stagger bounce */
+@keyframes bounce-in {
+  0% { transform: scale(0) rotate(-8deg); opacity: 0; }
+  70% { transform: scale(1.1) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* Bottom nav indicator slide */
+@keyframes nav-indicator {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+

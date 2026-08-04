@@ -1,0 +1,35 @@
+{
+  "name": "Atmosphere Weather",
+  "short_name": "Atmosphere",
+  "description": "Neubrutalist weather dashboard with world clock, packing suggestions, and live forecasts",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#facc15",
+  "theme_color": "#facc15",
+  "orientation": "portrait-primary",
+  "categories": ["weather", "utilities"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "World Clock",
+      "short_name": "Clock",
+      "description": "View world clocks and timezone converter",
+      "url": "/time",
+      "icons": []
+    }
+  ]
+}
